@@ -396,7 +396,17 @@
   .foot-grid a:hover{ color:var(--paper); }
   .foot-col h4{ font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:rgba(232,227,214,0.4); margin-bottom:10px; letter-spacing:0.04em; }
   .foot-col div{ margin-bottom:6px; }
-  .foot-logo{ height:38px; width:auto; display:block; margin-bottom:14px; opacity:0.92; }
+  .foot-logo-badge{
+    display:inline-flex; align-items:center; background:#fff;
+    border-radius:6px; padding:8px 14px; margin-bottom:14px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.25);
+  }
+  .foot-logo{ height:34px; width:auto; display:block; }
+  .foot-brand{
+    font-family:'Big Shoulders Display', sans-serif; font-weight:800;
+    font-size:17px; letter-spacing:0.02em; text-transform:uppercase;
+    color:var(--paper); margin:0;
+  }
 </style>
 </head>
 <body>
@@ -708,8 +718,8 @@
 <footer>
   <div class="wrap foot-grid">
     <div class="foot-col">
-      <img class="foot-logo" src="Tails-logo.jpg" alt="Tails Electric">
-      <h4>TAILS ELECTRIC</h4>
+      <div class="foot-logo-badge"><img class="foot-logo" src="Tails-logo.jpg" alt="Tails Electric"></div>
+      <h4 class="foot-brand">Tails Electric</h4>
     </div>
     <div class="foot-col">
       <h4>CONTACT</h4>
