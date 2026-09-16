@@ -91,13 +91,6 @@
     fill:#24404F;
     fill-opacity:.55;
   }
-  #boot-overlay .boot-bolt .cloud-flash{
-    fill:var(--volt);
-    opacity:0;
-    filter:blur(10px);
-    animation:cloudFlash .5s ease-out forwards;
-    animation-delay:.55s;
-  }
   #boot-overlay .boot-bolt path{
     fill:none;
     stroke-linecap:round;
@@ -150,11 +143,6 @@
   @keyframes forkFlicker{
     0%{opacity:0;}
     50%{opacity:.8;}
-    100%{opacity:0;}
-  }
-  @keyframes cloudFlash{
-    0%{opacity:0;}
-    45%{opacity:.6;}
     100%{opacity:0;}
   }
   @keyframes boltImpact{
@@ -660,7 +648,6 @@
       <ellipse class="cloud-body" cx="178" cy="26" rx="42" ry="24"/>
       <rect class="cloud-body" x="19" y="14" width="186" height="33" rx="15"/>
       <ellipse class="cloud-shade" cx="79" cy="-1" rx="33" ry="16.5"/>
-      <ellipse class="cloud-flash" cx="112" cy="20" rx="108" ry="39"/>
     </g>
     <path class="bolt-glow" d="M114,52 L98,116 L132,126 L88,214 L120,224 L74,320 L104,330 L66,398"/>
     <path class="bolt-core" d="M114,52 L98,116 L132,126 L88,214 L120,224 L74,320 L104,330 L66,398"/>
