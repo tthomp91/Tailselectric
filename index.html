@@ -69,18 +69,18 @@
     display:flex; align-items:center; justify-content:center;
     pointer-events:none;
     animation:overlayReveal 1s ease-in forwards;
-    animation-delay:1.15s;
+    animation-delay:1.2s;
   }
   #boot-overlay .boot-logo{
     width:34px; height:34px;
     opacity:0;
-    animation:bootLogoIn .5s ease-out forwards;
-    animation-delay:.15s;
+    animation:bootLogoIn .4s ease-out forwards;
+    animation-delay:1.05s;
   }
   #boot-overlay .boot-bolt{
     position:absolute;
-    top:0; left:50%;
-    width:220px; height:70vh; max-height:520px;
+    top:-6%; left:50%;
+    width:220px; height:86vh; max-height:640px;
     transform:translateX(-50%);
     overflow:visible;
   }
@@ -91,25 +91,40 @@
     pathLength:1;
     stroke-dasharray:1;
     stroke-dashoffset:1;
-    animation:boltDraw .28s cubic-bezier(.2,.9,.2,1) forwards;
-    animation-delay:.82s;
+    animation:boltDraw .42s cubic-bezier(.6,0,.85,.35) forwards;
+    animation-delay:.6s;
   }
   #boot-overlay .boot-bolt .bolt-glow{
     stroke:var(--volt);
-    stroke-width:10;
-    opacity:.55;
-    filter:blur(6px);
+    stroke-width:12;
+    opacity:.5;
+    filter:blur(7px);
   }
   #boot-overlay .boot-bolt .bolt-core{
     stroke:#F4FBFD;
-    stroke-width:3.5;
+    stroke-width:3;
+  }
+  #boot-overlay .boot-bolt .bolt-fork{
+    stroke:var(--volt);
+    stroke-width:1.5;
+    opacity:0;
+    animation:forkFlicker .18s ease-out forwards;
+  }
+  #boot-overlay .boot-bolt .bolt-fork-1{ animation-delay:.82s; }
+  #boot-overlay .boot-bolt .bolt-fork-2{ animation-delay:.92s; }
+  #boot-overlay .boot-bolt .bolt-impact{
+    fill:var(--volt);
+    opacity:0;
+    filter:blur(1.5px);
+    animation:boltImpact .4s ease-out forwards;
+    animation-delay:1.0s;
   }
   #boot-overlay .boot-flash{
     position:absolute; inset:0;
-    background:radial-gradient(circle at 50% 30%, rgba(244,251,253,0.95), rgba(79,212,232,0.25) 45%, rgba(0,0,0,0) 72%);
+    background:radial-gradient(circle at 50% 88%, rgba(244,251,253,0.97), rgba(79,212,232,0.28) 40%, rgba(0,0,0,0) 70%);
     opacity:0;
-    animation:boltFlash .32s ease-out forwards;
-    animation-delay:1.02s;
+    animation:boltFlash .38s ease-out forwards;
+    animation-delay:1.0s;
   }
   @keyframes bootLogoIn{
     from{opacity:0; transform:scale(.92);}
@@ -118,9 +133,19 @@
   @keyframes boltDraw{
     to{stroke-dashoffset:0;}
   }
+  @keyframes forkFlicker{
+    0%{opacity:0;}
+    50%{opacity:.8;}
+    100%{opacity:0;}
+  }
+  @keyframes boltImpact{
+    0%{opacity:0; r:2;}
+    30%{opacity:1; r:16;}
+    100%{opacity:0; r:34;}
+  }
   @keyframes boltFlash{
     0%{opacity:0;}
-    35%{opacity:1;}
+    30%{opacity:1;}
     100%{opacity:0;}
   }
   @keyframes overlayReveal{
@@ -610,8 +635,11 @@
 
 <div id="boot-overlay" role="presentation" aria-hidden="true">
   <svg class="boot-bolt" viewBox="0 0 220 400" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
-    <path class="bolt-glow" d="M110,0 L92,150 L128,160 L78,320 L118,332 L60,398"/>
-    <path class="bolt-core" d="M110,0 L92,150 L128,160 L78,320 L118,332 L60,398"/>
+    <path class="bolt-glow" d="M114,0 L98,96 L132,106 L88,206 L120,216 L74,318 L104,328 L66,398"/>
+    <path class="bolt-core" d="M114,0 L98,96 L132,106 L88,206 L120,216 L74,318 L104,328 L66,398"/>
+    <path class="bolt-fork bolt-fork-1" d="M120,216 L152,238 L140,250"/>
+    <path class="bolt-fork bolt-fork-2" d="M104,328 L66,344 L80,360"/>
+    <circle class="bolt-impact" cx="66" cy="398" r="2"/>
   </svg>
   <div class="boot-flash"></div>
   <svg class="boot-logo" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
