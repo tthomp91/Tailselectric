@@ -52,27 +52,33 @@
           </div>
         </div>
 
-        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Thanks — we\'ll be in touch within one business day.';">
+        <form class="form" id="quote-form" action="https://formspree.io/f/xdekvvre" method="POST">
+          <input type="hidden" name="_subject" value="New quote request from tailselectric.com">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
           <div class="form-row">
             <div>
               <label for="name">Name</label>
-              <input id="name" type="text" required>
+              <input id="name" name="name" type="text" required>
             </div>
             <div>
               <label for="phone">Phone</label>
-              <input id="phone" type="tel" required>
+              <input id="phone" name="phone" type="tel" required>
             </div>
           </div>
           <div>
+            <label for="email">Email (optional)</label>
+            <input id="email" name="email" type="email">
+          </div>
+          <div>
             <label for="type">Property type</label>
-            <select id="type">
+            <select id="type" name="property_type">
               <option>Residential</option>
               <option>Commercial / multi-unit</option>
             </select>
           </div>
           <div>
             <label for="utility">Who is your electric provider?</label>
-            <select id="utility">
+            <select id="utility" name="electric_provider">
               <option>Georgia Power</option>
               <option>Jackson EMC</option>
               <option>Another EMC or co-op</option>
@@ -82,7 +88,7 @@
           </div>
           <div>
             <label for="job">What do you need?</label>
-            <select id="job">
+            <select id="job" name="job_type">
               <option>EV charger installation</option>
               <option>Powerwall / gateway install</option>
               <option>Panel upgrade</option>
@@ -94,7 +100,7 @@
           </div>
           <div>
             <label for="notes">Notes (optional)</label>
-            <textarea id="notes" placeholder="Vehicle, panel size, timeline — anything helpful."></textarea>
+            <textarea id="notes" name="notes" placeholder="Vehicle, panel size, timeline — anything helpful."></textarea>
           </div>
           <button type="submit" class="btn btn-copper" style="align-self:flex-start;">Request a quote</button>
           <p class="form-note">We usually respond within one business day.</p>
@@ -120,5 +126,22 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var f=document.getElementById('quote-form'); if(!f) return;
+  var note=f.querySelector('.form-note'), btn=f.querySelector('button[type=submit]');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    btn.disabled=true; note.textContent='Sending...';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(r.ok){ f.reset(); note.textContent="Thanks! We'll be in touch within one business day."; }
+        else { note.textContent='Something went wrong. Please call (678) 997-8870.'; }
+      })
+      .catch(function(){ note.textContent='Something went wrong. Please call (678) 997-8870.'; })
+      .then(function(){ btn.disabled=false; });
+  });
+})();
+</script>
 </body>
 </html>
