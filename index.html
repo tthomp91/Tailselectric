@@ -240,7 +240,7 @@
     </nav>
     <div class="nav-right">
       <span class="nav-phone">(678) 997-8870</span>
-      <a href="#contact" class="btn btn-copper">Get a quote</a>
+      <a href="quote.html" class="btn btn-copper">Get a quote</a>
     </div>
   </div>
 </header>
@@ -256,7 +256,7 @@
           <h1 class="hero-h"><span class="hl">Charge Faster.</span><span class="hl">Wired Right.</span></h1>
           <p class="lede">Tails Electric installs EV chargers for homes, fleets, and multi-unit buildings — plus the full range of residential and commercial electrical work behind them. Based in Braselton and covering roughly a 20-mile radius, we're a small, owner-led crew: the person who quotes your job is the person who shows up to do it.</p>
           <div class="hero-ctas">
-            <a href="#contact" class="btn btn-copper">Get a free quote</a>
+            <a href="quote.html" class="btn btn-copper">Get a free quote</a>
             <a href="#ev-chargers" class="btn btn-line">See charger options</a>
           </div>
         </div>
@@ -521,15 +521,15 @@
       <div class="area-grid">
         <div>
           <div class="town-list">
-            <span class="town">Sugar Hill</span>
-            <span class="town">Winder</span>
+            <a class="town" href="ev-charger-installation-sugar-hill-ga.html">Sugar Hill</a>
+            <a class="town" href="ev-charger-installation-winder-ga.html">Winder</a>
             <a class="town" href="ev-charger-installation-buford-ga.html">Buford</a>
             <a class="town" href="ev-charger-installation-jefferson-ga.html">Jefferson</a>
             <a class="town here" href="ev-charger-installation-braselton-ga.html">Braselton</a>
             <a class="town" href="ev-charger-installation-flowery-branch-ga.html">Flowery Branch</a>
             <span class="town">Auburn</span>
             <span class="town">Dacula</span>
-            <span class="town">Hoschton</span>
+            <a class="town" href="ev-charger-installation-hoschton-ga.html">Hoschton</a>
             <span class="town">Statham</span>
             <span class="town">Pendergrass</span>
             <span class="town">Talmo</span>
@@ -701,53 +701,9 @@
           </div>
         </div>
 
-        <form class="form" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Thanks — we\'ll be in touch within one business day.';">
-          <div class="form-row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" type="text" required>
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input id="phone" type="tel" required>
-            </div>
-          </div>
-          <div>
-            <label for="type">Property type</label>
-            <select id="type">
-              <option>Residential</option>
-              <option>Commercial / multi-unit</option>
-            </select>
-          </div>
-          <div>
-            <label for="utility">Who is your electric provider?</label>
-            <select id="utility">
-              <option>Georgia Power</option>
-              <option>Jackson EMC</option>
-              <option>Another EMC or co-op</option>
-              <option>City utility</option>
-              <option>Not sure</option>
-            </select>
-          </div>
-          <div>
-            <label for="job">What do you need?</label>
-            <select id="job">
-              <option>EV charger installation</option>
-              <option>Powerwall / gateway install</option>
-              <option>Panel upgrade</option>
-              <option>Rewiring / outlets</option>
-              <option>Emergency repair</option>
-              <option>General electrical work</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div>
-            <label for="notes">Notes (optional)</label>
-            <textarea id="notes" placeholder="Vehicle, panel size, timeline — anything helpful."></textarea>
-          </div>
-          <button type="submit" class="btn btn-copper" style="align-self:flex-start;">Request a quote</button>
-          <p class="form-note">We usually respond within one business day.</p>
-        </form>
+        <div>
+          <a class="btn btn-copper" href="quote.html">Request a free quote</a>
+        </div>
       </div>
     </div>
   </section>
